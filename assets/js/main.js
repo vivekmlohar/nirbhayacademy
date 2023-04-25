@@ -22,39 +22,21 @@ faqs.forEach(faq => {
   });
 })
 
+//>>>>> Menu Button Event Listener
 
-/// javascript for open and close menu
-
-const menu = document.querySelector(".nav_menu");
-const openBtn = document.querySelector("#open-menu-btn");
-const closeBtn = document.querySelector("#close-menu-btn");
+const Menu = document.querySelector(".nav_menu");
 const Nav = document.querySelector("nav");
 
-openBtn.addEventListener('click', () => {
-  menu.style.top = "4rem";
-  closeBtn.style.display = "inline-block";
-  openBtn.style.display = "none";
-  Nav.style.background = "#005BCE";
+const menuBtn = document.querySelector(".menuBtn");
+
+menuBtn.addEventListener('click', () => {
+  menuBtn.classList.toggle("menu-active");
+  Menu.classList.toggle("nav--active");
+  Nav.classList.toggle("NavBgColor")
 })
 
-// declared function of close nav
-const closeNav = () => {
-  menu.style.top = "-100vh";
-  closeBtn.style.display = "none";
-  openBtn.style.display = "inline-block";
-  
-}
-
-// event listener for close btn
-closeBtn.addEventListener('click', closeNav);
-
-
-
-var loader = document.querySelector(".loader");
+// var loader = document.querySelector(".loader");
 
 window.addEventListener('load', () =>{
-  loader.classList.add("loader-hide");
+  document.querySelector(".loader").classList.add("loader-hide");
 });
-
-//function loaderHids() {
-//  loader.classList.add("loader-hide");}
