@@ -27,13 +27,13 @@
 
   <!-- ////// Loader section ///////-->
   <div class="loader">
-        <div class="spinner">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>    
+    <div class="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 
   <!-- ////// navigation section ///////-->
@@ -41,7 +41,7 @@
   <nav>
     <div class="container nav_container">
 
-        <a href="#home" id="home" class="logo">NIRBHAY ACADEMY</a>
+      <a href="#home" id="home" class="logo">NIRBHAY ACADEMY</a>
 
       <ul class="nav_menu">
         <li><a href="">HOME</a></li>
@@ -51,11 +51,11 @@
         <i class="fa-solid fa-profile"></i>
       </ul>
 
-     	<div class="menuBtn">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
+      <div class="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <!-- <button id="open-menu-btn"><i class="fa-solid fa-bars-staggered"></i></button>
       <button id="close-menu-btn"><i class="fa-solid fa-close"></i></button> -->
 
@@ -239,7 +239,7 @@
           <a class="btn" href="courses">Enroll</a>
         </div>
       </article>
-      
+
     </div>
   </section>
 
@@ -359,8 +359,50 @@
   </footer>
 
   <!-- External Javascript File -->
-  <script src="/assets/js/main.js"></script>
+  <script>
+    // Javascript for background change when scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('window-scroll', window.scrollY > 0)
+    });
+
+    // Javascript for faq toggle btns
+    const faqs = document.querySelectorAll('.faq');
+
+
+    faqs.forEach(faq => {
+      faq.addEventListener('click', () => {
+        faq.classList.toggle('open');
+
+        //faq lightbulb toggle
+
+        const icon = faq.querySelector('.faq_icon i');
+        if (icon.className === 'fa-regular fa-question') {
+          icon.className = 'fa-regular fa-lightbulb'
+        } else {
+          icon.className = 'fa-regular fa-question'
+        }
+      });
+    })
+
+    //>>>>> Menu Button Event Listener
+
+    const Menu = document.querySelector(".nav_menu");
+    const Nav = document.querySelector("nav");
+
+    const menuBtn = document.querySelector(".menuBtn");
+
+    menuBtn.addEventListener('click', () => {
+      menuBtn.classList.toggle("menu-active");
+      Menu.classList.toggle("nav--active");
+      Nav.classList.toggle("NavBgColor")
+    })
+
+    // var loader = document.querySelector(".loader");
+
+    window.addEventListener('load', () => {
+      document.querySelector(".loader").classList.add("loader-hide");
+    });
+  </script>
 </body>
-    <!-- Designed and Created By Vivek Lohar -->
 
 </html>
